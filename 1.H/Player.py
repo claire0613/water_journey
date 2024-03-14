@@ -25,9 +25,6 @@ class Player(ABC):
     def name(self, new_name):
         self.__name = new_name
 
-    def add_hand_card(self, card):
-        self.__hand.add_card(card)
-
     @abstractmethod
     def show_card(self):
         return NotImplemented
@@ -35,4 +32,16 @@ class Player(ABC):
     @abstractmethod
     def make_exchange_hands_decision(self) -> bool:
         return NotImplemented
+
+    @property
+    def hand(self) -> Hand:
+        return self.__hand
+
+    @hand.setter
+    def set_hand(self, hand: Hand):
+        self.__hand = hand
+    
+    def take_turn(self):
+        self.make_exchange_hands_decision()
+        
 

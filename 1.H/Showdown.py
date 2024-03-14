@@ -6,4 +6,4 @@ class Showdown:
         self.players = players
 
     def get_players(self):
-        return iter(self.players)
+        return 
